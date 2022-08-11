@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
   command cmd = play;
   char *file = nullptr;
   bool show_status = false;
+  bool stretch = false;
   float enlargement = 1.8;
 
   for (int i = 1; i < argc; i++)
@@ -50,6 +51,10 @@ int main(int argc, char *argv[])
         exit(1);
       }
       i++;
+    }
+    else if (strcmp(arg, "--stretch") == 0 || strcmp(arg, "-t") == 0)
+    {
+      stretch = true;
     }
     else if (file != nullptr)
     {
@@ -88,6 +93,7 @@ int main(int argc, char *argv[])
     cout << PURPLE << "\t-h, --help: " << YELLOW << "Display this message" << RESET << endl;
     cout << PURPLE << "\t-s, --show-status: " << YELLOW << "Show player status" << RESET << endl;
     cout << PURPLE << "\t-e, --enlargement: " << YELLOW << "Set the enlargement factor [D: 1.8]" << RESET << endl;
+    cout << PURPLE << "\t-t, --stretch: " << YELLOW << "Ignore the enlargement factor and stretch the video to fit the terminal" << RESET << endl;
     cout << PURPLE << "\t[file]: " << YELLOW << "The video file to play" << RESET << endl;
     cout << PURPLE << "━━━━━━━━━━━━━━━━━" << RESET << endl;
     cout << YELLOW << "What is the enlargement factor?" << RESET << endl;
@@ -106,7 +112,7 @@ int main(int argc, char *argv[])
       exit(1);
     }
 
-    play_video(file, show_status, enlargement);
+    play_video(file, show_status, enlargement, stretch);
     clear();
     cout << YELLOW << "Tadaaaa!" << RESET << endl;
     break;

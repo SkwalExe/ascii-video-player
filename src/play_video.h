@@ -5,6 +5,6 @@
 #ifndef ASCII_VIDEO_PLAYER_PLAY_VIDEO_H
 #define ASCII_VIDEO_PLAYER_PLAY_VIDEO_H
 
-void play_video(char *file, bool show_status, float enlargement);
+void play_video(char *file, bool show_status, float enlargement, bool stretch);
 
 #endif // ASCII_VIDEO_PLAYER_PLAY_VIDEO_H

@@ -20,8 +20,13 @@ int array_length(char const *array)
     return i;
 }
 
-void fit_image(Mat& image, int max_width, int max_height, float enlargement = 1.8)
+void fit_image(Mat& image, int max_width, int max_height, float enlargement, bool stretch)
 {
+    if (stretch)
+    {
+        resize(image, image, Size(max_width, max_height), 0, 0, INTER_LINEAR);
+        return;
+    }
     double resize_factor_1 = (double)max_width / image.cols;
     double resize_factor_2 = (double)max_height / image.rows;
     double resize_factor = min(resize_factor_1, resize_factor_2);
@@ -47,7 +52,7 @@ void display_frame(Mat frame)
 
 
 
-void play_video(char *file, bool show_status, float enlargement)
+void play_video(char *file, bool show_status, float enlargement, bool stretch)
 {
     VideoCapture cap(file);
     
@@ -92,7 +97,8 @@ void play_video(char *file, bool show_status, float enlargement)
     {
         cap.read(frame);
         cvtColor(frame, frame, COLOR_BGR2GRAY);
-        fit_image(frame, width, height, enlargement);
+        fit_image(frame, width, height, enlargement, stretch);
+        clear();
         if (show_status) {
             cout << i << "th frame / " << frame_count << "\n";
             cout << "progression : " << (i * 100 / frame_count) << "%" << "\n";
@@ -101,7 +107,6 @@ void play_video(char *file, bool show_status, float enlargement)
             cout << "frame width : " << frame.cols << "\n";
             cout << "frame height : " << frame.rows << "\n";
         }
-        clear();
         display_frame(frame);
         sleep(casted_frame_duration);
         get_terminal_size(width, height);
