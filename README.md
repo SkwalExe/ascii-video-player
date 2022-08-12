@@ -6,6 +6,9 @@ Play video 📺 files in real time directly in your terminal.
 
 # Installation 📦
 
+## **⚠️ Before all, you need to have [OpenCV 4.x](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html) installed**
+
+
 ## With make - Linux 🐧
 
 Build
