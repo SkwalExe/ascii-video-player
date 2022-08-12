@@ -13,6 +13,7 @@ Build
 ```bash
 # 📂 ascii-video-player/
 make
+# ⚙️ binary -> build/ascii-video-player
 ```
 
 Add binary to bin folder
@@ -22,12 +23,6 @@ make install
 ```
 
 ### Build from source - Linux 🐧 & Windows 🪟
-
-**Clone this repo**
-
-```bash
-git clone https://github.com/SkwalExe/ascii-video-player.git
-```
 
 Create a build folder
 
@@ -65,6 +60,25 @@ sudo cp ascii-video-player /usr/local/bin/
 # Usage 📝
 
 ![](images/usage.png)
+
+## Examples ✨
+
+**The two videos are provided in the repository.**
+### **And yes, all this in your terminal.**
+
+```bash
+# 📂 ascii-video-player
+ascii-video-player bad-apple.mp4
+```
+
+![](images/1.gif)
+
+```bash
+# 📂 ascii-video-player
+ascii-video-player bad-apple-amv-colored.mp4 -b
+```
+
+![](images/2.gif)
 
 # Uninstall 🗑
 
