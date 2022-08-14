@@ -67,7 +67,7 @@ void display_frame_with_colors(Mat frame, bool blocks, bool color_background)
               if (blocks)
               {
                   cout << "\x1b[48;2;"
-                       << (int)pixel_color[0] << ";" << (int)pixel_color[1] << ";" << (int)pixel_color[2]
+                       << (int)pixel_color[2] << ";" << (int)pixel_color[1] << ";" << (int)pixel_color[0]
                        << "m" << "  " << "\x1b[0m";
               }
               else {
@@ -75,7 +75,7 @@ void display_frame_with_colors(Mat frame, bool blocks, bool color_background)
                   int char_index = chars_array_len * pixel_gray_value / 255;
     
                   cout << "\x1b[" << (color_background ? "48" : "38") << ";2;"
-                       << (int) pixel_color[0] << ";" << (int) pixel_color[1] << ";" << (int) pixel_color[2]
+                       << (int) pixel_color[2] << ";" << (int) pixel_color[1] << ";" << (int) pixel_color[0]
                        << "m" << ASCII_CHARS[char_index] << "\x1b[0m";
               }
         }
