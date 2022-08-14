@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
   switch (cmd)
   {
   case version:
-    std::cout << PURPLE << "ascii-video-player => " << YELLOW << "0.2.0" << std::endl;
+    std::cout << PURPLE << "ascii-video-player => " << YELLOW << "0.2.1" << std::endl;
     break;
   case help:
     cout << WHITE << "video-ascii-player" << RESET << endl;
